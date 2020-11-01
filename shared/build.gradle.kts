@@ -1,7 +1,6 @@
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
-
 plugins {
     kotlin("multiplatform")
+    kotlin("plugin.serialization")
 }
 repositories {
     jcenter()
@@ -23,10 +22,16 @@ kotlin {
         jvm()
     }
     sourceSets {
+        val ktorVersion = "1.4.0"
+
         commonMain {
             dependencies {
                 implementation(project(":entity"))
                 implementation("io.ktor:ktor-server-core:1.4.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9-native-mt")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.0.0-RC")
+                implementation("io.ktor:ktor-client-core:$ktorVersion")
+                implementation("io.ktor:ktor-client-serialization:$ktorVersion")
             }
         }
         commonTest {
