@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
     kotlin("multiplatform")
+    kotlin("plugin.serialization")
 }
 
 repositories {
@@ -28,6 +29,7 @@ kotlin {
             dependencies {
                 // https://github.com/Kotlin/mpp-example/tree/master/greeting
                 implementation("org.jetbrains.kotlin:kotlin-stdlib-common:1.4.10")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.0.0-RC")
             }
         }
         commonTest {
