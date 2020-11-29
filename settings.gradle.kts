@@ -1,3 +1,4 @@
+include(":firestore")
 pluginManagement {
     repositories {
         gradlePluginPortal()
